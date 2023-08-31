@@ -7,5 +7,5 @@ jobs:
   playground:
     runs-on: ubuntu-latest
     steps:
-      - name: Test GitHub event contents
-        run: echo ${{ github.event }}
+      - name: Test GitHub contents
+        run: echo ${{ toJson(github) }}
