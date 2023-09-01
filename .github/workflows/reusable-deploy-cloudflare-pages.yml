@@ -30,11 +30,19 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            return github.rest.git.getRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: `heads/${context.payload.pull_request.head.ref}`,
-            })
+            let ref = "";
+            try {
+              ref = await github.rest.git.getRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: "add-animations",
+                //ref: `heads/${context.payload.pull_request.head.ref}`,
+              })
+            catch (error) {
+              console.log(JSON.stringify(error))
+              throw error
+            }
+            return ref
       - name: Echo result
         run: echo '${{ toJson(steps.ref-exists.outputs.result) }}'
 #      - name: Download built app
