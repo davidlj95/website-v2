@@ -46,7 +46,7 @@ jobs:
                 throw error
               }
             }
-            return response === undefined
+            return response !== undefined
       - name: Echo result
         run: echo '${{ steps.ref-exists.outputs.result }}'
 #      - name: Download built app
