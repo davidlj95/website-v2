@@ -38,7 +38,7 @@ jobs:
                 ref: "add-animations",
                 //ref: `heads/${context.payload.pull_request.head.ref}`,
               })
-            catch (error) {
+            } catch (error) {
               console.log(JSON.stringify(error))
               throw error
             }
