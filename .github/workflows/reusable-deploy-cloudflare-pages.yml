@@ -30,21 +30,25 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            let ref = "";
+            let ref = `heads/${context.payload.pull_request.head.ref}`
+            let response;
             try {
-              ref = await github.rest.git.getRef({
+              response = await github.rest.git.getRef({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 ref: "add-animations",
-                //ref: `heads/${context.payload.pull_request.head.ref}`,
               })
+              console.log("Reference found")
             } catch (error) {
-              console.log(JSON.stringify(error))
-              throw error
+              if (error["status"] === 404) {
+                console.log("Reference not found")
+              } else {
+                throw error
+              }
             }
-            return ref
+            return response === undefined
       - name: Echo result
-        run: echo '${{ toJson(steps.ref-exists.outputs.result) }}'
+        run: echo '${{ steps.ref-exists.outputs.result }}'
 #      - name: Download built app
 #        uses: actions/download-artifact@v3
 #        with:
