@@ -47,6 +47,12 @@ Commit messages follow the [conventional commits][conventional-commits] guidelin
 
 To enforce that, [`commitlint`][commitlint] is used. It reads the commit messages on a PR and ensures they follow the [conventional commits][conventional-commits] convention.
 
+You can use the following run script to ensure the last commit follows the guidelines:
+
+```shell
+yarn run commitlint-last
+```
+
 [commitlint]: https://github.com/conventional-changelog/commitlint
 
 ## Git hooks
