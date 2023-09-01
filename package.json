@@ -15,7 +15,8 @@
     "security-txt": "ts-node scripts/src/generate-security-txt.ts",
     "font-subsets": "ts-node scripts/src/generate-font-subsets.ts",
     "lint": "ng lint",
-    "git-hooks": "husky install"
+    "git-hooks": "husky install",
+    "commitlint": "commitlint --edit"
   },
   "private": true,
   "dependencies": {
