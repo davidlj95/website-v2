@@ -30,7 +30,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            github.rest.git.getRef({
+            return github.rest.git.getRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
               ref: `heads/${context.payload.pull_request.head.ref}`,
