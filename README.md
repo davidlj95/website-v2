@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Some fonts included are a subset of a big font file. Before doing anything, please run
 
-```
+```shell
 yarn run font-subsets
 ```
 
@@ -34,6 +34,20 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a
 package that implements end-to-end testing capabilities.
+
+## Commit message guidelines
+
+Commit messages follow the [conventional commits][conventional-commits] guidelines. This allows for automating the semantic versioning release process using [semantic release][semantic-release]
+
+[conventional-commits]: https://www.conventionalcommits.org/en/v1.0.0/
+
+[semantic-release]: https://semantic-release.gitbook.io/semantic-release/
+
+### Commit message lint
+
+To enforce that, [`commitlint`][commitlint] is used. It reads the commit messages on a PR and ensures they follow the [conventional commits][conventional-commits] convention.
+
+[commitlint]: https://github.com/conventional-changelog/commitlint
 
 ## Git hooks
 
@@ -89,8 +103,7 @@ In order to ease running CI/CD commands locally, the `.ci` directory contains a 
 Just:
 
 ```shell
-cd .ci
-make test # for instance
+cd .ci && make test # for instance
 ```
 
 And see how a command run in the CI/CD behaves locally. Notice your machine's state may differ from the CI/CD machine one.
@@ -106,8 +119,7 @@ brew install act
 Then, use one of the many `run-` targets in the CI/CD `Makefile` to simulate a CI/CD workflow run. For instance:
 
 ```shell
-cd .ci
-make run-main
+cd .ci && make run-main
 ```
 
 Simulates the workflow triggered by a push to `main` branch.
