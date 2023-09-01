@@ -6,21 +6,17 @@ on:
 jobs:
   build:
     name: Build
-    if: false
     uses: ./.github/workflows/reusable-build.yml
     with:
       artifact-name: build
   test:
     name: Test
-    if: false
     uses: ./.github/workflows/reusable-test.yml
   lint:
     name: Lint
-    if: false
     uses: ./.github/workflows/reusable-lint.yml
   performance:
     name: Performance
-    if: false
     needs: build
     uses: ./.github/workflows/reusable-performance.yml
     with:
@@ -29,7 +25,7 @@ jobs:
       LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
   deploy-preview:
     name: Deploy preview
-    # needs: [build, lint, test, performance]
+    needs: [build, lint, test, performance]
     uses: ./.github/workflows/reusable-deploy-cloudflare-pages.yml
     # Quote to avoid YAML issues with "!" at the beginning
     # https://github.com/actions/runner/issues/753
