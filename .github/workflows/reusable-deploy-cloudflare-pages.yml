@@ -35,6 +35,7 @@ jobs:
               repo: context.repo.repo,
               ref: `heads/${context.payload.pull_request.head.ref}`,
             })
+          result-encoding: string
       - name: Echo result
         run: echo "${{ steps.ref-exists.outputs.result }}"
 #      - name: Download built app
