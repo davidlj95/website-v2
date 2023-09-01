@@ -16,7 +16,7 @@
     "font-subsets": "ts-node scripts/src/generate-font-subsets.ts",
     "lint": "ng lint",
     "git-hooks": "husky install",
-    "commitlint": "commitlint --verbose --edit"
+    "commitlint-last": "commitlint --verbose --edit"
   },
   "private": true,
   "dependencies": {
