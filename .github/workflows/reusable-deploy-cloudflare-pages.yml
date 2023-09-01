@@ -33,7 +33,7 @@ jobs:
             github.rest.git.getRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              ref: 'add-animations'
+              ref: context.ref,
             })
       - name: Echo result
         run: echo "${{ steps.ref-exists.outputs.result }}"
