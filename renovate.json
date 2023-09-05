@@ -4,6 +4,8 @@
     "config:base"
   ],
   "rangeStrategy": "pin",
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 5,
   "packageRules": [
     {
       "matchPackagePatterns": [
