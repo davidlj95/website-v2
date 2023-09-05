@@ -3,5 +3,18 @@
   "extends": [
     "config:base"
   ],
-  "semanticCommitType": "build"
+  "packageRules": [
+    {
+      "matchPackagePatterns": [
+        "*"
+      ],
+      "semanticCommitType": "build"
+    },
+    {
+      "matchDepTypes": [
+        "dependencies"
+      ],
+      "semanticCommitType": "fix"
+    }
+  ]
 }
